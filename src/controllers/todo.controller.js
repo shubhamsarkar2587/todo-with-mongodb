@@ -44,6 +44,25 @@ const createTodo = async (req, res) => {
 	}
 };
 
+const updateTodoById = async (req, res) => {
+	try {
+		const todoId = req.params.id;
+		const { title, description } = req.body;
+		const updatedTodo = await TodoSchema.findByIdAndUpdate(
+			todoId,
+			{ title, description },
+			{ new: true, runValidators: true }
+		);
+		if (updatedTodo) {
+			res.json({ message: 'Successfully updated!', todo: updatedTodo });
+		} else {
+			res.status(404).json({ error: 'Todo not found' });
+		}
+	} catch (err) {
+		console.log(err);
+	}
+};
+
 const deleteTodoById = async (req, res) => {
 	try {
 		const todoId = req.params.id;
@@ -62,5 +81,6 @@ module.exports = {
 	getTodoById,
 	getAllTodos,
 	createTodo,
+	updateTodoById,
 	deleteTodoById
 };
