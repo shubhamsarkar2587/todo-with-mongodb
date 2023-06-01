@@ -42,8 +42,6 @@ git clone `https://github.com/shubhamsarkar2587/todo-with-mongodb.git`
 
 Once the application is running, you can use a REST API client to interact with the following endpoints:
 
-- `Base_Url: api/v1/`
-
 - `GET /todos`: Get a list of all Todo tasks.
 - `GET /todos/:id`: Get a single Todo task by ID.
 - `POST /todos`: Create a new Todo task.
