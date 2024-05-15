@@ -7,6 +7,9 @@ const app = express();
 app.use(express.json());
 
 // routes
+app.get('/', (req, res) => {
+	res.send('App is running successfully');
+});
 app.use('/todos', todoRouter);
 app.use((err, req, res, next) => {
 	console.log(err, 'Internal server error');

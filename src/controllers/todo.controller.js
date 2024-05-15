@@ -25,6 +25,7 @@ const getTodoById = async (req, res) => {
 
 const createTodo = async (req, res) => {
 	try {
+		console.log('ddfdf');
 		const { title, description } = req.body;
 		if (title && description) {
 			const todo = await TodoSchema.create(req.body);
